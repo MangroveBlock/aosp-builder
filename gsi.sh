@@ -33,4 +33,4 @@ BUILD_END=$(date +"%s");
 DIFF=$(($BUILD_END - $BUILD_START));
 
 
-tg_sendText "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."
+tg_sendText "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds"

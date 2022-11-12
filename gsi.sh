@@ -21,7 +21,7 @@ rm -rf /tmp/rom/*
 tg_sendText "Cloning GSI Builds"
 git clone https://github.com/ProjectSuzu/treble_build_miku -b snowland
 tg_sendText "Prepairing to build GSI"
-tg_sendtext "Building..."
+tg_sendText "Building..."
 bash treble_build_miku/build.sh
 tg_sendText "Build completed! Uploading rom"
 BD=/tmp/gsi

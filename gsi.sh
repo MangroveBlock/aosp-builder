@@ -15,22 +15,27 @@ BUILD_START=$(date +"%s");
 
 ls -a
 tg_sendText "Cloning GSI Builds"
-git clone https://github.com/AndyCGYan/treble_experimentations
-mkdir floko-gsi; cd floko-gsi
-git clone https://github.com/AndyCGYan/treble_experimentations
-repo init -u https://github.com/FlokoROM/manifesto.git -b 11.0
-git clone https://github.com/ProjectSuzu/treble_build_floko -b 11.0-unified
-git clone https://github.com/FlokoROM-GSI/lineage_patches_unified -b 11.0-unified
+git clone https://github.com/MizuNotCool/treble_build_ancient.git
+mkdir lineage-18.x-build-gsi; cd lineage-18.x-build-gsi
+repo init -u https://github.com/ancient-lab.git -b eleven
+git clone https://github.com/MizuNotCool/treble_build_ancient.git
+git clone https://github.com/Ankits-lab/treble_patches -b lineage-18.1
+git clone https://github.com/Ankits-lab/treble_build_los -b lineage-18.1
 tg_sendText "Prepairing to build GSI"
 tg_sendText "Building..."
+export KBUILD_BUILD_USER=ItzKaguya
+export KBUILD_BUILD_HOST=ItzKaguya-PC
+export BUILD_USERNAME=ItzKaguya
+export BUILD_HOSTNAME=ItzKaguya-PC
 bash treble_build_floko/buildbot_unified.sh treble A64B
 tg_sendText "Build completed! Uploading rom"
-curl bashupload.com -T ./build-output/Floko*.img | tee download-link-floko.txt
+curl bashupload.com -T ancient-18.1-ItzKaguyaGSI-UNOFFICIAL-suzuhimeSharedSystem.img.xz | tee build-output-ancient.txt
+curl bashupload.com -T ./build-output/ancient-18.1-ItzKaguyaGSI-UNOFFICIAL-suzuhimeSharedSystem.img.xz | tee download-link-ancient.txt
 sleep 10
-curl bashupload.com -T ./build-output/*lineage*.img | tee download-link-lineage.txt
-sleep 10
-tg_sendFile "download-link-floko.txt"
-tg_sendFile "download-link-lineage.txt"
+cat build-output-ancient.txt
+cat download-link-ancient.txt
+tg_sendFile "build-output-ancient.txt"
+tg_sendFile "download-link-ancient.txt"
 
 BUILD_END=$(date +"%s");
 DIFF=$(($BUILD_END - $BUILD_START));

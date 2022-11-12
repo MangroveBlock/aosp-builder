@@ -23,9 +23,7 @@ task:
       memory: 32G # So that we can have ram when needed, 32G highest. 4G per CPU you use.
     permission_script: # Actual chmod script foreground
       - chmod 777 * # chmod script to run
-    dependencies_script: # Actual build script foreground
-      - ./dependencies.sh # Build script to run
-    monitor_background_script: # To monitor ccache and machine status every minute, runs in background
+    monitoring_background_script: # To monitor ccache and machine status every minute, runs in background
       - ./monitor # Monitor script
     chmod_script: # Actual chmod script foreground
       - ./chmod.sh # chmod script to run

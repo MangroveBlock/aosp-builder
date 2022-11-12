@@ -13,8 +13,6 @@ curl -F chat_id=$CHAT_ID -F document=@${1} -F parse_mode=markdown https://api.te
 
 BUILD_START=$(date +"%s");
 
-tg_sendText "Installing git"
-sudo apt install git -y
 mkdir /tmp/gsi
 tg_sendText "Cloning GSI Builds"
 git clone https://github.com/ProjectSuzu/treble_build_miku -b snowland

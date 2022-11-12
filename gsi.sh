@@ -19,15 +19,15 @@ git clone https://github.com/AndyCGYan/treble_experimentations
 mkdir floko-gsi; cd floko-gsi
 git clone https://github.com/AndyCGYan/treble_experimentations
 repo init -u https://github.com/FlokoROM/manifesto.git -b 11.0
-git clone https://github.com/FlokoROM-GSI/treble_build_floko -b 11.0-unified
+git clone https://github.com/ProjectSuzu/treble_build_floko -b 11.0-unified
 git clone https://github.com/FlokoROM-GSI/lineage_patches_unified -b 11.0-unified
 tg_sendText "Prepairing to build GSI"
 tg_sendText "Building..."
 bash treble_build_floko/buildbot_unified.sh treble A64B
 tg_sendText "Build completed! Uploading rom"
-curl bashupload.com -T ~/build-output/Floko*.img | tee download-link-floko.txt
+curl bashupload.com -T ./build-output/Floko*.img | tee download-link-floko.txt
 sleep 10
-curl bashupload.com -T ~/build-output/*lineage*.img | tee download-link-lineage.txt
+curl bashupload.com -T ./build-output/*lineage*.img | tee download-link-lineage.txt
 sleep 10
 tg_sendFile "download-link-floko.txt"
 tg_sendFile "download-link-lineage.txt"

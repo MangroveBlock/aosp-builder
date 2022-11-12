@@ -13,11 +13,7 @@ curl -F chat_id=$CHAT_ID -F document=@${1} -F parse_mode=markdown https://api.te
 
 BUILD_START=$(date +"%s");
 
-rm -rf /tmp/*
-mkdir /tmp/gsi
-mkdir /tmp/rom
-rm -rf /tmp/gsi/*
-rm -rf /tmp/rom/*
+ls -a
 tg_sendText "Cloning GSI Builds"
 git clone https://github.com/ProjectSuzu/treble_build_miku -b snowland
 tg_sendText "Prepairing to build GSI"

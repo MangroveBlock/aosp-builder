@@ -15,18 +15,16 @@ BUILD_START=$(date +"%s");
 
 ls -a
 tg_sendText "Cloning GSI Builds"
-git clone https://github.com/ProjectSuzu/treble_build_miku -b snowland
+git clone https://github.com/MizuNotCool/treble_build_pe -b twelve
 tg_sendText "Prepairing to build GSI"
 tg_sendText "Building..."
-bash treble_build_miku/build.sh
+bash treble_build_pe/build.sh
 tg_sendText "Build completed! Uploading rom"
-BD=/tmp/gsi
-export BD=/tmp/gsi
-VERSION="0.5.0"
-export VERSION="0.5.0"
-curl bashupload.com -T $BD/MikuUI-SNOWLAND-$VERSION-a64-ab-ItzKaguyaGSI-UNOFFICIAL.img.xz | tee download-link.txt
+BD=/tmp/builds
+export BD=/tmp/builds
+curl bashupload.com -T $BD/AOSPExtended_a64-ab-12.1-ItzKaguyaGSI-UNOFFICIAL.img.xz | tee download-link.txt
 sleep 10
-curl bashupload.com -T $BD/MikuUI-SNOWLAND-$VERSION-a64-ab-vndklite-ItzKaguyaGSI-UNOFFICIAL.img.xz | tee download-link-vndklite.txt
+curl bashupload.com -T $BD/AOSPExtended_a64-ab-vndklite-12.1-ItzKaguyaGSI-UNOFFICIAL.img.xz | tee download-link-vndklite.txt
 sleep 10
 tg_sendFile "download-link.txt"
 tg_sendFile "download-link-vndklite.txt"

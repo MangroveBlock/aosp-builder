@@ -7,12 +7,17 @@ env: # Environment variables to pass to all tasks
     # CHAT_ID and BOT_TOKEN are used by telegram functions. I don't want you to control my bot xD
     rclone_config: "ENCRYPTED[!1f05479865cdd2b61271f79b8d913adc5d7534b6814ee69a84e8867bc5151f05ad69782f3302797b2bfb7901957239ad!]"
     CHAT_ID: "-1001861749152"
+    TG_CHAT_ID: "-1001861749152"
+    TG_TOKEN: "ENCRYPTED[!a260400c07cb89b7f163db0195cb6b877bd7c796d5c15f562be741143f1141d0626acd28b5d3686b7d4575fc4ab06de5!]"
     BOT_TOKEN: "ENCRYPTED[!a260400c07cb89b7f163db0195cb6b877bd7c796d5c15f562be741143f1141d0626acd28b5d3686b7d4575fc4ab06de5!]"
-    
+    GH_EMAIL: "ENCRYPTED[!31a80dec350bf64154f912c080381d8896a8bf18c4df03d4d60b72c4fdf9836a837b456f0c5d0c0ed5be7184b8e2996e!]"
+    GH_TOKEN: "ENCRYPTED[!76677fae6e3b6399625c0356927489a3eb17112f76952cd2af508230737eade70c961ed16fea63f3ebf3fd5f1b08d8e3!]"
+
+
     # Github variables needed so as to be able to clone private repos too without authenticating. Useful for building official roms which have private repos. The first 3 variables needs to be encrypted!! You can hide your email and username by encrypting them too if you want but that's not neccessary.
-    user_email: "aryasukanadi098@gmail.com"
+    user_email: "ENCRYPTED[!31a80dec350bf64154f912c080381d8896a8bf18c4df03d4d60b72c4fdf9836a837b456f0c5d0c0ed5be7184b8e2996e!]"
     user_name: "Hirozuto"
-    user_pass: ""
+    user_pass: "ENCRYPTED[!76677fae6e3b6399625c0356927489a3eb17112f76952cd2af508230737eade70c961ed16fea63f3ebf3fd5f1b08d8e3!]"
 
 task:
     name: Building # Project name
@@ -26,6 +31,4 @@ task:
     monitoring_background_script: # To monitor ccache and machine status every minute, runs in background
       - ./monitor # Monitor script
     Build_script: # Actual build script foreground
-      - ./build.sh # Build script to run
-    Upload_script: 
-      - ./upload.sh
+      - ./build-clang.sh # Build script to run

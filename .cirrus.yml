@@ -5,17 +5,17 @@ env: # Environment variables to pass to all tasks
     # For rclone with google drive or any cloud! After first commit pushing, login to https://cirrus-ci.com , click top left corner 3 dot menu, click repository(yourname/aosp-builder) > Repository Settings > Secured Variables > enter content of ~/.config/rclone/rclone.conf (from pc where you setup rclone) > ENCRYPT, copy that ENCRYPTED hash
     # ENCRYPTED variables is unique for every repository, so you cant use my one, create you rclone config https://rclone.org/drive/#making-your-own-client-id
     # CHAT_ID and BOT_TOKEN are used by telegram functions. I don't want you to control my bot xD
-    rclone_config: "ENCRYPTED[!1f05479865cdd2b61271f79b8d913adc5d7534b6814ee69a84e8867bc5151f05ad69782f3302797b2bfb7901957239ad!]"
-    CHAT_ID: "-1001861749152"
-    BOT_TOKEN: "ENCRYPTED[!a260400c07cb89b7f163db0195cb6b877bd7c796d5c15f562be741143f1141d0626acd28b5d3686b7d4575fc4ab06de5!]"
+    rclone_config: "ENCRYPTED[605abf55c28dd0f53e929f020b085b307075a3f027b928b6e51f14581c75e98885ebb2557a935cc6255b17a44dbe07da]"
+    CHAT_ID: "-1001776820416"
+    BOT_TOKEN: "ENCRYPTED[bb54359ac79e03be1850c265784a939b14dfc30732923f33b948296588a82e0d2711b89ef887162a5947e7088a7adcc7]"
     
     # Github variables needed so as to be able to clone private repos too without authenticating. Useful for building official roms which have private repos. The first 3 variables needs to be encrypted!! You can hide your email and username by encrypting them too if you want but that's not neccessary.
-    user_email: "aryasukanadi098@gmail.com"
-    user_name: "Hirozuto"
+    user_email: "ENCRYPTED[d43be5aa8a2a83cc6ab07c2bebc9397f5c1c8ad3f4f28faeb4870a3451d61c51122f4015aba8fec77ed450713b7ed1f6]"
+    user_name: "ENCRYPTED[7e487b68bb1f9e45832776266b201cad16ae3c0ea837a675bb465c393034cb79e65e2683ea117627f6bfb36fed46114e]"
     user_pass: ""
 
 task:
-    name: Building # Project name
+    name: Voltage-E # Project name
     timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: apon77/aosp:cirrus # It has built-in setup environment + repo, aria2, rclone, pigz, username ci, and email ci@ci.ci [You can use your own docker image if you want, or you can use this one too!]
